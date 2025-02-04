@@ -1,0 +1,23 @@
+---
+- name: Desplegar una aplicación web
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Instalar Git
+      apt:
+        name: git
+        state: present
+
+    - name: Clonar repositorio de la aplicación
+      git:
+        repo: https://github.com/ejemplo/app-web.git
+        dest: /var/www/app
+        version: main
+
+    - name: Copiar archivo de configuración
+      copy:
+        src: files/app.conf
+        dest: /etc/app.conf
+        owner: root
+        group: root
+        mode: '0644'

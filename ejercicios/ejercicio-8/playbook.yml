@@ -1,0 +1,15 @@
+---
+- name: Usar variables y plantillas
+  hosts: webservers
+  become: yes
+  vars:
+    app_name: "Mi Aplicación"
+    app_port: 8080
+  tasks:
+    - name: Crear archivo de configuración usando una plantilla
+      template:
+        src: templates/app.conf.j2
+        dest: /etc/app.conf
+        owner: root
+        group: root
+        mode: '0644'

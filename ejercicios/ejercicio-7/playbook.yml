@@ -1,0 +1,15 @@
+---
+- name: Gestionar servicios
+  hosts: all
+  become: yes
+  tasks:
+    - name: Detener el servicio Apache
+      service:
+        name: apache2
+        state: stopped
+
+    - name: Habilitar el servicio SSH
+      service:
+        name: ssh
+        enabled: yes
+        state: started

@@ -1,0 +1,15 @@
+---
+- name: Instalar y configurar Apache
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Instalar Apache
+      apt:
+        name: apache2
+        state: present
+
+    - name: Habilitar e iniciar el servicio Apache
+      service:
+        name: apache2
+        enabled: yes
+        state: started

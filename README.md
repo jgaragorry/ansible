@@ -23,6 +23,3 @@ El objetivo de este repositorio es proporcionar ejemplos prácticos y documentac
 
 ## Comandos Comunes
 Consulta el archivo [comandos-comunes.md](comandos-comunes.md) para ver una lista de comandos útiles en Ansible.
-
-## Certificados
-En la carpeta `certificados/` encontrarás ejemplos de certificados que puedes usar como referencia.

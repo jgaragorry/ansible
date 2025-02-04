@@ -1,0 +1,7 @@
+---
+- name: Usar roles para configurar un servidor
+  hosts: webservers
+  become: yes
+  roles:
+    - common
+    - webserver

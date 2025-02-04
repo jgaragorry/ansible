@@ -1,0 +1,22 @@
+---
+- name: Configurar balanceador de carga
+  hosts: loadbalancer
+  become: yes
+  tasks:
+    - name: Instalar Nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Configurar Nginx como balanceador
+      copy:
+        src: files/nginx.conf
+        dest: /etc/nginx/nginx.conf
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Reiniciar Nginx
+      service:
+        name: nginx
+        state: restarted
